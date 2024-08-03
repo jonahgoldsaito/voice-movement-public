@@ -1,6 +1,6 @@
 # Voice-movemenent with an LLM
 
-![Demo](docs/moveObjectsGIF.gif)
+[![Demo](docs/moveObjectsGIF.gif)](https://www.linkedin.com/feed/update/urn:li:activity:7183837944942600194/)
 
 
 ## Why
