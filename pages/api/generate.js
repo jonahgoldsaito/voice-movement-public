@@ -1,6 +1,9 @@
 import { Configuration, OpenAIApi } from "openai";
 import { buildPrompt } from './prompt.js';
 
+//  Update to the newest model if you like!
+const model_nm = "gpt-4-turbo-preview";
+
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -19,28 +22,16 @@ export default async function (req, res) {
   const txt = req.body.txt;
   const elements = req.body.elements;
 
-  console.log("elements", elements);
-
   try {
     const instructions = buildPrompt(txt, elements);
     
-    //console.log("instructions", instructions);
-    console.log("instructions", instructions);
-    console.log("_+_+_+_+_+_+_+_+_+_+_+_+_+");
-
-    console.log("elements", elements);
-
     const response = await openai.createChatCompletion({
-      //model: "gpt-3.5-turbo-0125",
-      //model: "gpt-4",
-      model: "gpt-4-turbo-preview",
+      model: model_nm,
       temperature: 0.75,
       messages: [{role: "system", content: instructions}, {role: "user", content: ''}], 
     }, { timeout: 60000 });
 
     const response_text = response.data.choices[0].message.content.trim();
-    console.log("txt", txt)
-    console.log("response_text", response_text);
 
     res.status(200).json({ result: response_text, prompt: instructions });
   } catch(error) {

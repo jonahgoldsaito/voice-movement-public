@@ -6,7 +6,6 @@ import { useAnimate } from 'framer-motion';
 import { Cursor } from './cursor';
 
 export default function Home() {
-  //const [themeInput, setThemeInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [spokenTxt, setSpokenTxt] = useState("");
   const [output, setOutput] = useState("");
@@ -17,8 +16,6 @@ export default function Home() {
   const recognitionRef = useRef(null);
   const [elements, setElements] = useState({});
   const elementsRef = useRef(elements);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
   //  Build the elements object from the nodes in the #elements node
   useEffect(() => {
@@ -81,7 +78,6 @@ export default function Home() {
         txt: txt,
         elements: {...elementsRef.current}
       }
-      console.log("OBBBBJJJJ",obj);
       setIsLoading(true);
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -97,9 +93,7 @@ export default function Home() {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
 
-      const result = JSON.parse(data.result);
-      console.log("Data:", result);
-      
+      const result = JSON.parse(data.result);      
       animateDiv(result.elements, result.direction, result.amount);
     } catch(error) {
       console.error(error);

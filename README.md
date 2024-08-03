@@ -13,6 +13,7 @@ I decided to give create an example showing how we could quickly create a voice-
 
 A [short demo video](https://www.linkedin.com/feed/update/urn:li:activity:7183837944942600194/) recorded after the conference
 
+If you want to update to OpenAI's state-of-the-art model, you can update the model name in `pages/api/generate.js`
 
 ## Setup
 
