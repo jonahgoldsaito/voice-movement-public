@@ -1,0 +1,9 @@
+.cursorTrail {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 82px;
+  height: 123px;
+  background: url('/mic.png');
+  z-index: 2;
+}

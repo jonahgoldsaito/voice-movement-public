@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "ColfaxAI";
+  src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
+      format("woff2"),
+    url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ColfaxAI";
+  src: url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff2) format("woff2"),
+    url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+.main {
+  font-family: "ColfaxAI";
+  cursor: pointer;
+  cursor: none;
+}
+
+.micHidden {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-90px, -122px);
+  opacity: 0;
+  transition: all .5s ease-out;
+  pointer-events: none;
+}
+.mic {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-90px, -122px);
+  animation: pulse 1s infinite;
+  transition: all .5s ease-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.circle {
+  border-radius: 100%;
+  width: 215px;
+  height: 215px;
+  margin-left: -100px;
+  margin-top: -115px;
+  z-index: 1;
+  border: 50px solid #2bdbb5;
+  box-sizing: border-box;
+}
+
+.square {
+  background: #ed6debee;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  border-radius: 8px;
+  margin-left: 100px;
+  margin-top: 85px;
+  z-index: 3;
+}
+
+.tinyCircle {
+  background: #ffa6fe;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  border-radius: 100px;
+  margin-right: -200px;
+  margin-top: -215px;
+  z-index: 4;
+}
+
+.output {
+  font-size: 130px;
+  color: #f3f3f3;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  pointer-events: none;
+  line-height: .66em;
+}
+
+.elements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.grid {
+  background: url('/grid.png') 50% 50%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 50;
+}
